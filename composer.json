@@ -1,0 +1,22 @@
+{
+  "name": "kubex/definitions-php",
+  "description": "Kubex Definitions",
+  "homepage": "https://kubex.io",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Brooke Bryan",
+      "email": "brooke@bajb.net"
+    }
+  ],
+  "require": {
+    "php": ">=7.4.0"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Kubex\\Definitions\\": "src/"
+    }
+  }
+}
