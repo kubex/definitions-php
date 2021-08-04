@@ -3,6 +3,7 @@ namespace Kubex\Definitions;
 
 class Navigation
 {
+  public string $icon;
   public Text $text;
   public Text $title;
   public string $destinationPath;
