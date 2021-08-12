@@ -14,4 +14,5 @@ class Definition
   public string $icon = 'pending';//material design icon
   public array $paths = [];
   public array $permissions = [];//[]Permission
+  public array $unify = [];//[]Navigation
 }
