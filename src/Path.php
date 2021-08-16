@@ -13,7 +13,8 @@ class Path
   public array $requestPermissions = [];//[]Permission
   public array $requiredPermissions = [];//[]Permission
 
-  public array $appNavigationSections = [];
-  public array $appNavigation = [];
-  public array $pageNavigation = [];
+  public array $appNavigationSections = [];//[]NavigationSection
+  public array $appNavigation = [];//[]Navigation
+  public array $pageNavigation = [];//[]Navigation
+  public array $pageActions = [];//[]Navigation
 }
