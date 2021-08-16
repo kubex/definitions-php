@@ -16,11 +16,12 @@ class Navigation
   public IntegrationPoint $point;
   public string $launchMode = self::LAUCH_MODE_PAGE; //LAUCH_MODE_PAGE, LAUCH_MODE_MODAL, LAUCH_MODE_WINDOW, LAUCH_MODE_OVERLAY
 
-  public static function create($path, $text, string $section = '')
+  public static function create($path, $text, string $icon = '', string $section = '')
   {
     $t = new static();
     $t->destinationPath = $path;
     $t->sectionID = $section;
+    $t->icon = $icon;
     $t->text = $text instanceof Text ? $text : Text::create($text);
     return $t;
   }
