@@ -3,9 +3,9 @@ namespace Kubex\Definitions;
 
 class NavigationSection
 {
-  public string $id;
-  public int $priority;
-  public Text $text;
+  public $id;
+  public $priority;
+  public $text;
 
   public static function create($id, $text, $priority = 50)
   {

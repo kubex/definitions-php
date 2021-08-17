@@ -3,18 +3,18 @@ namespace Kubex\Definitions;
 
 class Path
 {
-  public string $id;
-  public string $path;
-  public string $method;
+  public $id;
+  public $path;
+  public $method;
 
-  public Text $name;
-  public Text $description;
+  public $name;
+  public $description;
 
-  public array $requestPermissions = [];//[]Permission
-  public array $requiredPermissions = [];//[]Permission
+  public $requestPermissions = [];//[]Permission
+  public $requiredPermissions = [];//[]Permission
 
-  public array $appNavigationSections = [];//[]NavigationSection
-  public array $appNavigation = [];//[]Navigation
-  public array $pageNavigation = [];//[]Navigation
-  public array $pageActions = [];//[]Navigation
+  public $appNavigationSections = [];//[]NavigationSection
+  public $appNavigation = [];//[]Navigation
+  public $pageNavigation = [];//[]Navigation
+  public $pageActions = [];//[]Navigation
 }

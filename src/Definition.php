@@ -3,16 +3,16 @@ namespace Kubex\Definitions;
 
 class Definition
 {
-  public GlobalAppID $id;
-  public string $endpoint;
+  public $id;
+  public $endpoint;
 
-  public Text $name;
-  public Text $description;
+  public $name;
+  public $description;
 
-  public string $UIMode;
-  public array $dependencies = [];//[]GlobalAppID
-  public string $icon = 'pending';//material design icon
-  public array $paths = [];
-  public array $permissions = [];//[]Permission
-  public array $unify = [];//[]Navigation
+  public $UIMode;
+  public $dependencies = [];//[]GlobalAppID
+  public $icon = 'pending';//material design icon
+  public $paths = [];
+  public $permissions = [];//[]Permission
+  public $unify = [];//[]Navigation
 }

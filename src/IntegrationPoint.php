@@ -8,7 +8,7 @@ class IntegrationPoint
   const LOCATION_ACTION = 'action';
   const LOCATION_PANEL = 'panel';
 
-  public GlobalAppID $integrateApp;
-  public string $pathID;
-  public string $location; //LOCATION_NAV_PAGE, LOCATION_NAV_APP, LOCATION_ACTION, LOCATION_PANEL
+  public $integrateApp;
+  public $pathID;
+  public $location; //LOCATION_NAV_PAGE, LOCATION_NAV_APP, LOCATION_ACTION, LOCATION_PANEL
 }

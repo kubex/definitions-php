@@ -3,8 +3,8 @@ namespace Kubex\Definitions;
 
 class Text
 {
-  public string $fallback;
-  public array $translations;//[lang]text
+  public $fallback;
+  public $translations;//[lang]text
 
   public static function create($default)
   {

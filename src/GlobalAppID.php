@@ -3,8 +3,8 @@ namespace Kubex\Definitions;
 
 class GlobalAppID
 {
-  public string $vendorID;
-  public string $appID;
+  public $vendorID;
+  public $appID;
 
   public static function create($vendor, $app)
   {
