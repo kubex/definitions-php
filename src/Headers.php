@@ -3,16 +3,38 @@ namespace Kubex\Definitions;
 
 class Headers
 {
-  const WorkspaceID = "x-kx-workspace-id";// Workspace UUID
-  const UserID = "x-kx-user-id";// User UID
-  const Signature = "x-kx-signature";// Kubex Signature
-  const TraceID = "x-kx-trace-id";// Kubex request Trace ID
+  // RequestWorkspaceID Workspace UUID
+  const RequestWorkspaceID = "x-kx-workspace-id";
 
-  const UserIP = "x-kx-user-ip";// User IP
-  const UserAgent = "x-kx-user-agent";// User Agent
+  // RequestUserID User UID
+  const RequestUserID = "x-kx-user-id";
 
-  const Authorization = "x-kx-authorization";// Json Authorizations, [{"k":"permission-key","e":"A","r":"*"},"k":"permission-key-2","e":"D","r":"uid1"]
-  const Authentication = "x-kx-authentication";// JSON access credentials, provided by the app e.g. {"accessToken":"xx"}
+  // RequestSignature Kubex Signature
+  const RequestSignature = "x-kx-signature";
+
+  // RequestTraceID Kubex request Trace ID
+  const RequestTraceID = "x-kx-trace-id";
+
+  // RequestUserIP User IP
+  const RequestUserIP = "x-kx-user-ip";
+
+  // RequestUserAgent User Agent
+  const RequestUserAgent = "x-kx-user-agent";
+
+  // RequestAuthorization Json Authorizations, [{"k":"permission-key","e":"A","r":"*"},"k":"permission-key-2","e":"D","r":"uid1"]
+  const RequestAuthorization = "x-kx-authorization";
+
+  // RequestAuthentication JSON access credentials, provided by the app e.g. {"accessToken":"xx"}
+  const RequestAuthentication = "x-kx-authentication";
+
+  // ResponseUri Uri to set in the address bar for the current request
+  const ResponseUri = "x-kubex-uri";
+
+  // ResponseDebug Debug object for the browser
+  const ResponseDebug = "x-kubex-debug";
+
+  // ResponseZeroPad When set to true, padding will be removed for the container
+  const ResponseZeroPad = "x-kubex-zeropad";
 
   public static function verify(array $headers, $signatureKey, $maxTimeDiff = 60): bool
   {
@@ -23,7 +45,7 @@ class Headers
       return is_array($value) ? implode('', $value) : $value;
     }
 
-    [$signature, $timestamp] = explode('/', headerValue($headers, static::Signature, '/'), 2);
+    [$signature, $timestamp] = explode('/', headerValue($headers, static::RequestSignature, '/'), 2);
     $time = time();
     if($timestamp > ($time + $maxTimeDiff) || $timestamp < ($time - $maxTimeDiff))
     {
@@ -32,12 +54,12 @@ class Headers
 
     return $signature == hash(
         'sha256',
-        headerValue($headers, static::WorkspaceID)
-        . headerValue($headers, static::UserID)
+        headerValue($headers, static::RequestWorkspaceID)
+        . headerValue($headers, static::RequestUserID)
         . $signatureKey
-        . headerValue($headers, static::TraceID)
-        . headerValue($headers, static::UserIP)
-        . headerValue($headers, static::UserAgent)
+        . headerValue($headers, static::RequestTraceID)
+        . headerValue($headers, static::RequestUserIP)
+        . headerValue($headers, static::RequestUserAgent)
         . $timestamp
       );
   }

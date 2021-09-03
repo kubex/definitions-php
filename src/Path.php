@@ -10,11 +10,17 @@ class Path
   public Text $name;
   public Text $description;
 
-  public array $requestPermissions = [];//[]Permission
-  public array $requiredPermissions = [];//[]Permission
+  /** @var array<PermissionKey> */
+  public array $requestPermissions = [];
+  /** @var array<PermissionKey> */
+  public array $requiredPermissions = [];
 
-  public array $appNavigationSections = [];//[]NavigationSection
-  public array $appNavigation = [];//[]Navigation
-  public array $pageNavigation = [];//[]Navigation
-  public array $pageActions = [];//[]Navigation
+  /** @var array<NavigationSection> */
+  public array $appNavigationSections = [];
+  /** @var array<Navigation> */
+  public array $appNavigation = [];
+  /** @var array<Navigation> */
+  public array $pageNavigation = [];
+  /** @var array<Navigation> */
+  public array $pageActions = [];
 }

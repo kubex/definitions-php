@@ -3,8 +3,7 @@ namespace Kubex\Definitions;
 
 class Permission
 {
-  public GlobalAppID $app;
-  public string $key;
+  public PermissionKey $key;
   public Text $name;
   public Text $description;
 }

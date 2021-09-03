@@ -10,9 +10,15 @@ class Definition
   public Text $description;
 
   public string $UIMode;
-  public array $dependencies = [];//[]GlobalAppID
+  public string $category;
   public string $icon = 'pending';//material design icon
+
+  /** @var array<GlobalAppID> */
+  public array $dependencies = [];
+  /** @var array<Permission> */
+  public array $permissions = [];
+  /** @var array<Path> */
   public array $paths = [];
-  public array $permissions = [];//[]Permission
-  public array $unify = [];//[]Navigation
+  /** @var array<Navigation> */
+  public array $unify = [];
 }
