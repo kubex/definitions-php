@@ -6,7 +6,7 @@ class PermissionKey
   public GlobalAppID $app;
   public string $key;
 
-  public function create($key)
+  public static function create($key)
   {
     $pk = new static();
     $pk->key = $key;
