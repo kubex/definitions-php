@@ -56,14 +56,7 @@ class Headers
 
   public static function verify(array $headers, $signatureKey, $maxTimeDiff = 60): bool
   {
-
-    function headerValue($headers, $key, $default = '')
-    {
-      $value = $headers[$key] ?? $default;
-      return is_array($value) ? implode('', $value) : $value;
-    }
-
-    [$signature, $timestamp] = explode('/', headerValue($headers, static::RequestSignature, '/'), 2);
+    [$signature, $timestamp] = explode('/', static::value($headers, static::RequestSignature, '/'), 2);
     $time = time();
     if($timestamp > ($time + $maxTimeDiff) || $timestamp < ($time - $maxTimeDiff))
     {
@@ -72,13 +65,19 @@ class Headers
 
     return $signature == hash(
         'sha256',
-        headerValue($headers, static::RequestWorkspaceID)
-        . headerValue($headers, static::RequestUserID)
+        static::value($headers, static::RequestWorkspaceID)
+        . static::value($headers, static::RequestUserID)
         . $signatureKey
-        . headerValue($headers, static::RequestTraceID)
-        . headerValue($headers, static::RequestUserIP)
-        . headerValue($headers, static::RequestUserAgent)
+        . static::value($headers, static::RequestTraceID)
+        . static::value($headers, static::RequestUserIP)
+        . static::value($headers, static::RequestUserAgent)
         . $timestamp
       );
+  }
+
+  public static function value(array $headers, $key, $default = '')
+  {
+    $value = $headers[$key] ?? $default;
+    return is_array($value) ? implode('', $value) : $value;
   }
 }
