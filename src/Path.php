@@ -15,12 +15,8 @@ class Path
   /** @var array<PermissionKey> */
   public array $requiredPermissions = [];
 
-  /** @var array<NavigationSection> */
-  public array $appNavigationSections = [];
   /** @var array<Navigation> */
-  public array $appNavigation = [];
+  public array $navigation = [];
   /** @var array<Navigation> */
-  public array $pageNavigation = [];
-  /** @var array<Navigation> */
-  public array $pageActions = [];
+  public array $actions = [];
 }

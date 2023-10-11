@@ -7,4 +7,5 @@ class IntegrationPoint
   public string $pathID;
   /** @var string|\Kubex\Definitions\IntegrationLocation */
   public string $location;
+  public Navigation $navigation;
 }
