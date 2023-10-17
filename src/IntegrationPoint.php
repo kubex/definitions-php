@@ -4,8 +4,8 @@ namespace Kubex\Definitions;
 class IntegrationPoint
 {
   public GlobalAppID $integrateApp;
-  public string $pathID;
-  /** @var string|\Kubex\Definitions\IntegrationLocation */
+  /** @var string|IntegrationLocation */
   public string $location;
+  public string $pathID;
   public Navigation $navigation;
 }
