@@ -15,7 +15,7 @@ class Navigation
     $t->destinationPath = $path;
     $t->icon = $icon;
     $t->text = $text instanceof Text ? $text : Text::create($text);
-    $t->title = $t->text;
+    $t->title = $title === null ? '' : $t->text;
 
     if($title)
     {
