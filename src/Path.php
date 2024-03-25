@@ -9,6 +9,8 @@ class Path
 
   public Text $name;
   public Text $description;
+  public bool $hideHeader = false;
+  public bool $hideFooter = false;
 
   /** @var array<PermissionKey> */
   public array $requestPermissions = [];
