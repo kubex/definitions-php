@@ -5,6 +5,7 @@ class Definition
 {
   public GlobalAppID $id;
   public string $endpoint;
+  public string $defaultPath; // Default path to use when opening the app
 
   public Text $name;
   public Text $description;
