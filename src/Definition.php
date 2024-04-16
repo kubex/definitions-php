@@ -20,6 +20,9 @@ class Definition
   /** @var array<Permission> */
   public array $permissions = [];
 
+  /** @var array<\Kubex\Definitions\PermissionPolicy> */
+  public array $roles = [];
+
   /** @var array<Path> */
   public array $paths = [];
 
