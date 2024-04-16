@@ -3,14 +3,14 @@ namespace Kubex\Definitions;
 
 class Permission
 {
-  public PermissionKey $key;
+  public string $key;
   public Text $name;
   public Text $description;
 
-  public static function create($key, $name, $description)
+  public static function create(string $key, $name, $description)
   {
     $t = new static();
-    $t->key = PermissionKey::create($key);
+    $t->key = $key;
     $t->name = $name instanceof Text ? $name : Text::create($name);
     $t->description = $description instanceof Text ? $description : Text::create($description);
     return $t;
