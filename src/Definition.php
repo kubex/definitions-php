@@ -10,7 +10,9 @@ class Definition
   public Text $name;
   public Text $description;
 
+  /** @var string|UIMode */
   public string $UIMode;
+  /** @var string|Category */
   public string $category;
   public string $icon = 'pending';//material design icon
 
