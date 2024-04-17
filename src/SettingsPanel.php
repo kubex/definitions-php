@@ -4,8 +4,8 @@ namespace Kubex\Definitions;
 
 class SettingsPanel
 {
-  public string $name;
-  public string $description;
+  public Text $name;
+  public Text $description;
   /** @var Property[] */
   public array $settings = [];
   public int $order;

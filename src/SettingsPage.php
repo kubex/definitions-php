@@ -5,8 +5,8 @@ namespace Kubex\Definitions;
 class SettingsPage
 {
   public string $id;
-  public string $name;
+  public Text $name;
   /** @var SettingsPanel[] */
-  public array $settingsPanel = [];
+  public array $panels = [];
   public string $advancedPath;
 }

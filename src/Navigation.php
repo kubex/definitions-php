@@ -8,6 +8,8 @@ class Navigation
   public Text $title;
   public string $destinationPath;
   public string $launchMode = LaunchMode::Page;
+  /** @var array<ScopedKey> */
+  public array $requiredPermissions = [];
 
   public static function create($path, $text, string $icon = '', string $title = "")
   {

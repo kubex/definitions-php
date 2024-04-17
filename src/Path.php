@@ -12,9 +12,9 @@ class Path
   public bool $hideHeader = false;
   public bool $hideBreadcrumb = false;
 
-  /** @var array<PermissionKey> */
+  /** @var array<ScopedKey> */
   public array $requestPermissions = [];
-  /** @var array<PermissionKey> */
+  /** @var array<ScopedKey> */
   public array $requiredPermissions = [];
 
   /** @var array<Navigation> */

@@ -5,6 +5,7 @@ namespace Kubex\Definitions;
 class Property
 {
   public string $key;
+  /** @var string|PropertyType */
   public string $propertyType;
-  public $definition;
+  public PropertyDefinition $definition;
 }

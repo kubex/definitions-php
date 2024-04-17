@@ -1,7 +1,7 @@
 <?php
 namespace Kubex\Definitions;
 
-class PermissionKey
+class ScopedKey
 {
   public GlobalAppID $app;
   public string $key;

@@ -4,6 +4,6 @@ namespace Kubex\Definitions;
 class PermissionStatement
 {
   public string $effect;
-  public PermissionKey $permission;
+  public ScopedKey $permission;
   public string $resource;
 }

@@ -8,4 +8,6 @@ class IntegrationPoint
   public string $location;
   public string $pathID;
   public Navigation $navigation;
+  /** @var array<ScopedKey> */
+  public array $requiredPermissions = [];
 }
