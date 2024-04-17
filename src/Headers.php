@@ -1,6 +1,8 @@
 <?php
 namespace Kubex\Definitions;
 
+use JetBrains\PhpStorm\ObjectShape;
+
 class Headers
 {
   // RequestWorkspaceID Workspace UUID
@@ -79,5 +81,36 @@ class Headers
   {
     $value = $headers[$key] ?? $default;
     return is_array($value) ? implode('', $value) : $value;
+  }
+
+  /**
+   * @param $headers
+   *
+   * @return array<PermissionStatement>
+   */
+  public static function readAuthorization($headers): PermissionPolicy
+  {
+    $policy = new PermissionPolicy();
+    $auth = static::value($headers, static::RequestAuthorization);
+    $decoded = $auth ? json_decode($auth, true) : null;
+    if(empty($decoded))
+    {
+      return $policy;
+    }
+
+    foreach($decoded as $raw)
+    {
+      //[{"e":"Allow","p":{"vendorID":"vendor","appID":"app","Key":"view"},"r":""}]
+      $statement = new PermissionStatement();
+      $statement->effect = in_array(($raw['e'] ?? ''), ['A', 'Allow'])
+        ? PermissionEffect::Allow : PermissionEffect::Deny;
+      $statement->resource = $raw['r'] ?? '';
+      $statement->permission = new ScopedKey();
+      $statement->permission->key = $raw['p']['Key'] ?? '';
+      $statement->permission->app = GlobalAppID::create($raw['p']['vendorID'] ?? '', $raw['p']['appID'] ?? '');
+      $policy->statements[] = $statement;
+    }
+
+    return $policy;
   }
 }
