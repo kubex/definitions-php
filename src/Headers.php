@@ -1,8 +1,6 @@
 <?php
 namespace Kubex\Definitions;
 
-use JetBrains\PhpStorm\ObjectShape;
-
 class Headers
 {
   // RequestWorkspaceID Workspace UUID
@@ -55,6 +53,9 @@ class Headers
 
   // ResponseVanishElement vanish element from the DOM
   const ResponseVanishElement = "x-kubex-vanish-element";
+
+  // ResponseCloseModal close modal
+  const ResponseCloseModal = "x-kubex-close-modal";
 
   public static function verify(array $headers, $signatureKey, $maxTimeDiff = 60): bool
   {
