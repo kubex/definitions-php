@@ -17,8 +17,8 @@ class Path
   /** @var array<ScopedKey> */
   public array $requiredPermissions = [];
 
-  /** @var array<Navigation> */
+  /** @var array<EntryPoint> */
   public array $navigation = [];
-  /** @var array<Navigation> */
+  /** @var array<EntryPoint> */
   public array $actions = [];
 }

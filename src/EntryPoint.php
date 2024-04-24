@@ -1,7 +1,7 @@
 <?php
 namespace Kubex\Definitions;
 
-class Navigation
+class EntryPoint
 {
   public string $icon;
   public Text $text;
