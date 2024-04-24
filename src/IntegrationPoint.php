@@ -7,7 +7,7 @@ class IntegrationPoint
   /** @var string|IntegrationLocation */
   public string $location;
   public string $pathID;
-  public EntryPoint $navigation;
+  public EntryPoint $entryPoint;
   /** @var array<ScopedKey> */
   public array $requiredPermissions = [];
 }
