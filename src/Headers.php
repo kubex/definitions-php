@@ -56,9 +56,6 @@ class Headers
   // ResponseVanishElement vanish element from the DOM
   const ResponseVanishElement = "x-kubex-vanish-element";
 
-  // ResponseRefreshElement refresh element in the DOM
-  const ResponseRefreshElement = "x-kubex-refresh-element";
-
   public static function verify(array $headers, $signatureKey, $maxTimeDiff = 60): bool
   {
     [$signature, $timestamp] = explode('/', static::value($headers, static::RequestSignature, '/'), 2);
