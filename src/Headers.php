@@ -57,7 +57,7 @@ class Headers
   const ResponseVanishElement = "x-kubex-vanish-element";
 
   // ResponseRefreshElement refresh element in the DOM
-  const ResponseRefreshElement = "x-kubex-refresh-element"
+  const ResponseRefreshElement = "x-kubex-refresh-element";
 
   public static function verify(array $headers, $signatureKey, $maxTimeDiff = 60): bool
   {
