@@ -1,19 +1,21 @@
 <?php
 namespace Kubex\Definitions;
 
-class ScopedKey
+class ScopedKey extends GlobalAppID
 {
-  public GlobalAppID $app;
   public string $key;
 
-  public static function create(string $key, string $vendor = null, string $app = null)
+  public static function create($vendor, $app, $key = null)
+  {
+    $pk = static::create($vendor, $app);
+    $pk->key = $key;
+    return $pk;
+  }
+
+  public static function createKey(string $key)
   {
     $pk = new static();
     $pk->key = $key;
-    if($vendor != null || $app != null)
-    {
-      $pk->app = GlobalAppID::create($vendor, $app);
-    }
     return $pk;
   }
 }
