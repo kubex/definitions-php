@@ -34,6 +34,9 @@ class Definition
   /** @var array<ActivationStep> */
   public array $activationSteps = [];
 
+  /** @var array<ScopedKey> */
+  public array $listenToEvents = [];
+
   /** @var SettingsPage[] */
   public array $configuration = [];
 
