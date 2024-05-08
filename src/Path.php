@@ -11,6 +11,7 @@ class Path
   public Text $description;
   public bool $hideHeader = false;
   public bool $hideBreadcrumb = false;
+  public bool $promptOnExit = false;
 
   /** @var array<ScopedKey> */
   public array $requestPermissions = [];
