@@ -49,4 +49,6 @@ class Definition
   public string $privacyPolicy;
 
   public string $supportEmail;
+
+  public string $hash; // Hash of the definition for change detection, latest hash can be returned in HealthResponse
 }
