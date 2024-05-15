@@ -50,20 +50,24 @@ class Definition implements \JsonSerializable
 
   public string $supportEmail;
 
-  public string $hash; // Hash of the definition for change detection, latest hash can be returned in HealthResponse
+  public string $hash = ''; // Hash of the definition for change detection, latest hash can be returned in HealthResponse
 
   public function jsonSerialize()
   {
     $data = get_object_vars($this);
     if(empty($data['hash']))
     {
-      $data['hash'] = $this->getHash();
+      $data['hash'] = $this->getHash(false);
     }
     return $data;
   }
 
-  public function getHash(): string
+  public function getHash(bool $updateIfEmpty = true): string
   {
-    return md5(json_encode($this));
+    $original = $this->hash;
+    $this->hash = '';
+    $hash = md5(json_encode(get_object_vars($this)));
+    $this->hash = $original == '' && $updateIfEmpty ? $hash : $original;
+    return $this->hash ?: $hash;
   }
 }
