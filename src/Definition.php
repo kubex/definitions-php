@@ -57,8 +57,13 @@ class Definition implements \JsonSerializable
     $data = get_object_vars($this);
     if(empty($data['hash']))
     {
-      $data['hash'] = md5(json_encode($data));
+      $data['hash'] = $this->getHash();
     }
     return $data;
+  }
+
+  public function getHash(): string
+  {
+    return md5(json_encode($this));
   }
 }
