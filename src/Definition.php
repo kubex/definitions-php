@@ -50,6 +50,8 @@ class Definition implements \JsonSerializable
 
   public string $supportEmail;
 
+  public array $permittedProxyPaths = []; // Paths that can be proxied by the platform, without auth / modification
+
   public string $hash = ''; // Hash of the definition for change detection, latest hash can be returned in HealthResponse
 
   public function jsonSerialize()
