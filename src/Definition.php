@@ -51,4 +51,9 @@ class Definition
   public string $supportEmail;
 
   public string $hash; // Hash of the definition for change detection, latest hash can be returned in HealthResponse
+
+  public function getHash(): string
+  {
+    return md5(json_encode($this));
+  }
 }
