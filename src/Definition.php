@@ -1,7 +1,7 @@
 <?php
 namespace Kubex\Definitions;
 
-class Definition
+class Definition implements \JsonSerializable
 {
   public GlobalAppID $id;
   public string $endpoint;
@@ -52,8 +52,13 @@ class Definition
 
   public string $hash; // Hash of the definition for change detection, latest hash can be returned in HealthResponse
 
-  public function getHash(): string
+  public function jsonSerialize()
   {
-    return md5(json_encode($this));
+    $data = get_object_vars($this);
+    if(empty($data['hash']))
+    {
+      $data['hash'] = md5(json_encode($data));
+    }
+    return $data;
   }
 }
