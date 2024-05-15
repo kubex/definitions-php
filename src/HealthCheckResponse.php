@@ -7,6 +7,6 @@ class HealthCheckResponse
 {
   public string $status;
   public bool $isHealthy;
-  public int $nextRetry;
+  public int $nextRetry; // Next retry in seconds if a non-healthy response is given
   public string $definitionHash;
 }
