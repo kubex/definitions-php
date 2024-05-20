@@ -22,7 +22,7 @@ class Definition implements \JsonSerializable
   /** @var array<Permission> */
   public array $permissions = [];
 
-  /** @var array<\Kubex\Definitions\PermissionPolicy> */
+  /** @var array<PermissionPolicy> */
   public array $roles = [];
 
   /** @var array<Path> */
@@ -54,6 +54,7 @@ class Definition implements \JsonSerializable
 
   public string $hash = ''; // Hash of the definition for change detection, latest hash can be returned in HealthResponse
 
+  #[\ReturnTypeWillChange]
   public function jsonSerialize()
   {
     $data = get_object_vars($this);
