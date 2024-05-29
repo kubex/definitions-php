@@ -6,6 +6,10 @@ class Permission
   public string $key;
   public Text $name;
   public Text $description;
+  /**
+   * @var array<string, Text>
+   */
+  public array $meta = [];
 
   public static function create(string $key, $name, $description)
   {
