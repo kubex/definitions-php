@@ -60,6 +60,9 @@ class Headers
   // ResponseBasisPx ideal viewport in pixels (not guaranteed)
   const ResponseBasisPx = "x-kubex-basis-px";
 
+  // ResponseRemoveSelf remove self from the DOM
+  const ResponseRemoveSelf = "x-kubex-remove-self";
+
   public static function verify(array $headers, $signatureKey, $maxTimeDiff = 60): bool
   {
     [$signature, $timestamp] = explode('/', static::value($headers, static::RequestSignature, '/'), 2);
