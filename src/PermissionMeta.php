@@ -1,15 +1,11 @@
 <?php
 namespace Kubex\Definitions;
 
-class Permission
+class PermissionMeta
 {
   public string $key;
   public Text $name;
   public Text $description;
-  /**
-   * @var array<\Kubex\Definitions\PermissionMeta>
-   */
-  public array $meta = [];
 
   public static function create(string $key, $name, $description)
   {
