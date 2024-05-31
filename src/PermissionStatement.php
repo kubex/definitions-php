@@ -15,10 +15,10 @@ class PermissionStatement implements \JsonSerializable
   public function jsonSerialize()
   {
     return [
-      'e' => $this->effect,
-      'p' => $this->permission,
-      'r' => $this->resource,
-      'm' => $this->meta,
+      'e' => $this->effect ?? PermissionEffect::Allow,
+      'p' => $this->permission ?? null,
+      'r' => $this->resource ?? '',
+      'm' => $this->meta ?? null,
     ];
   }
 
