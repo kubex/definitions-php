@@ -63,6 +63,12 @@ class Headers
   // ResponseRemoveSelf remove self from the DOM
   const ResponseRemoveSelf = "x-kubex-remove-self";
 
+  // ResponseRefreshSelf refresh app-container
+  const ResponseRefreshSelf = "x-kubex-refresh-self";
+
+  // ResponseRefreshSpace refresh space
+  const ResponseRefreshSpace = "x-kubex-refresh";
+
   public static function verify(array $headers, $signatureKey, $maxTimeDiff = 60): bool
   {
     [$signature, $timestamp] = explode('/', static::value($headers, static::RequestSignature, '/'), 2);
