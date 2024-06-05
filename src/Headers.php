@@ -63,7 +63,7 @@ class Headers
   // ResponseRemoveSelf remove self from the DOM
   const ResponseRemoveSelf = "x-kubex-remove-self";
 
-  // ResponseRefresh refresh (empty to refresh self or space ID[#fragment])
+  // ResponseRefresh refresh (self, referer or space-ID[#fragment])
   const ResponseRefresh = "x-kubex-refresh";
 
   public static function verify(array $headers, $signatureKey, $maxTimeDiff = 60): bool
