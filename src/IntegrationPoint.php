@@ -10,6 +10,8 @@ class IntegrationPoint
   public string $pathID; //Remote app path ID
   public EntryPoint $entryPoint; // How the integration is presented
 
+  public int $preferredWidth; // Preferred width of the integration
+
   /** @var array<EntryPoint> */
   public array $panelActions = [];  // Actions to add to the panel
   /** @var array<EntryPoint> */
