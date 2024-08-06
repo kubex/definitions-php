@@ -8,7 +8,6 @@ class IntegrationLocation
   public const Action = "action"; // <app-actions>
   public const Panel = "panel"; // <app-panel>
 
-
   // @deprecated
   public const PageNav = self::Tab; // Header Navigation on Page
 }
