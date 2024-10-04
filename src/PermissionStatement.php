@@ -12,6 +12,7 @@ class PermissionStatement implements \JsonSerializable
    */
   public array $meta = [];
 
+  #[\ReturnTypeWillChange]
   public function jsonSerialize()
   {
     return [

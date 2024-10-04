@@ -96,7 +96,7 @@ class Headers
   /**
    * @param $headers
    *
-   * @return array<PermissionStatement>
+   * @return PermissionPolicy
    */
   public static function readAuthorization($headers): PermissionPolicy
   {
@@ -115,9 +115,11 @@ class Headers
       $statement->effect = in_array(($raw['e'] ?? ''), ['A', 'Allow'])
         ? PermissionEffect::Allow : PermissionEffect::Deny;
       $statement->resource = $raw['r'] ?? '';
-      $statement->permission = new ScopedKey();
-      $statement->permission->key = $raw['p']['Key'] ?? '';
-      $statement->permission->app = GlobalAppID::create($raw['p']['vendorID'] ?? '', $raw['p']['appID'] ?? '');
+      $statement->permission = ScopedKey::create(
+        $raw['p']['Key'] ?? '',
+        $raw['p']['vendorID'] ?? '',
+        $raw['p']['appID'] ?? ''
+      );
       $policy->statements[] = $statement;
     }
 
