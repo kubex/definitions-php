@@ -116,9 +116,9 @@ class Headers
         ? PermissionEffect::Allow : PermissionEffect::Deny;
       $statement->resource = $raw['r'] ?? '';
       $statement->permission = ScopedKey::create(
-        $raw['p']['Key'] ?? '',
         $raw['p']['vendorID'] ?? '',
-        $raw['p']['appID'] ?? ''
+        $raw['p']['appID'] ?? '',
+        $raw['p']['Key'] ?? '',
       );
       $policy->statements[] = $statement;
     }
