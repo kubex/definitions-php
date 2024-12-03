@@ -24,4 +24,25 @@ class Path
   public array $navigation = [];
   /** @var array<EntryPoint> */
   public array $actions = [];
+
+  public static function create($path, $method = '', $id = ''): self
+  {
+    $i = new static();
+    $i->path = $path;
+    $i->method = $method;
+    $i->id = $id;
+    return $i;
+  }
+
+  public function requirePermission(ScopedKey $permission): self
+  {
+    $this->requiredPermissions[] = $permission;
+    return $this;
+  }
+
+  public function requestPermission(ScopedKey $permission): self
+  {
+    $this->requestPermissions[] = $permission;
+    return $this;
+  }
 }
