@@ -25,4 +25,10 @@ class EntryPoint
     }
     return $t;
   }
+
+  public function requirePermission(ScopedKey $permission): self
+  {
+    $this->requiredPermissions[] = $permission;
+    return $this;
+  }
 }
