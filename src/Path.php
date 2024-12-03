@@ -25,7 +25,7 @@ class Path
   /** @var array<EntryPoint> */
   public array $actions = [];
 
-  public static function create($path, $method = '', $id = ''): self
+  public static function create($path, $id = '', $method = ''): self
   {
     $i = new static();
     $i->path = $path;
