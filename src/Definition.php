@@ -53,9 +53,9 @@ class Definition implements \JsonSerializable
   public array $permittedProxyPaths = []; // Paths that can be proxied by the platform, without auth / modification
 
   /** @var array<string, string> */
-  public array $prefixRedirect = []; // Matching prefixes to redirect  e.g. [CST:CST => 'view/$1'] $1 includes the prefix
+  public array $prefixRedirect; // Matching prefixes to redirect  e.g. [CST:CST => 'view/$1'] $1 includes the prefix
   /** @var array<string, string> */
-  public array $quickCodes = []; // Matching Codes to redirect  e.g. [CST => 'view/$1'] $1 is replaced by everything after the code
+  public array $quickCodes; // Matching Codes to redirect  e.g. [CST => 'view/$1'] $1 is replaced by everything after the code
 
   public string $hash = ''; // Hash of the definition for change detection, latest hash can be returned in HealthResponse
 
