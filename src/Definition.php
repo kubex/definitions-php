@@ -52,6 +52,9 @@ class Definition implements \JsonSerializable
 
   public array $permittedProxyPaths = []; // Paths that can be proxied by the platform, without auth / modification
 
+  /** @var array<string, string> */
+  public array $prefixRedirect = []; // Paths that should be redirected based on the prefix key e.g. [CST:CST => 'view/$1
+
   public string $hash = ''; // Hash of the definition for change detection, latest hash can be returned in HealthResponse
 
   #[\ReturnTypeWillChange]
