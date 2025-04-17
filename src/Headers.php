@@ -66,6 +66,9 @@ class Headers
   // ResponseRefresh refresh (self, referer or space-ID[#fragment])
   const ResponseRefresh = "x-kubex-refresh";
 
+  // ResponseForwardUri forward the browser to a new URI
+  const ResponseForwardUri = "x-kubex-forward-uri";
+
   public static function verify(array $headers, $signatureKey, $maxTimeDiff = 60): bool
   {
     [$signature, $timestamp] = explode('/', static::value($headers, static::RequestSignature, '/'), 2);
