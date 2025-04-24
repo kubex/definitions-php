@@ -57,6 +57,9 @@ class Definition implements \JsonSerializable
   /** @var array<string, string> */
   public array $quickCodes; // Matching Codes to redirect  e.g. [CST => 'view/$1'] $1 is replaced by everything after the code
 
+  /** @var Navigation[] */
+  public array $navigation = [];
+
   public string $hash = ''; // Hash of the definition for change detection, latest hash can be returned in HealthResponse
 
   #[\ReturnTypeWillChange]
