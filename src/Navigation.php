@@ -4,7 +4,7 @@ namespace Kubex\Definitions;
 
 class Navigation
 {
-  public string $title;
+  public Text $title;
   /** @var EntryPoint[] */
   public array $items = [];
 }
