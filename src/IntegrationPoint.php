@@ -18,6 +18,9 @@ class IntegrationPoint
   /** @var array<EntryPoint> */
   public array $panelTabs = [];  // Tabs to show - panels only
 
+  /** @var array<IntegrationPointPreference> */
+  public array $preferences = []; // Preferences for the integration point
+
   /** @var array<ScopedKey> */
   public array $requiredPermissions = [];// Permissions that must be set for the user to see this item
 }
