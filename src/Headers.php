@@ -27,9 +27,6 @@ class Headers
   // RequestAuthentication JSON access credentials, provided by the app e.g. {"accessToken":"xx"}
   const RequestAuthentication = "x-kx-authentication";
 
-  // ResponseUri Uri to set in the address bar for the current request
-  const ResponseUri = "x-kubex-uri";
-
   // ResponseDebug Debug object for the browser
   const ResponseDebug = "x-kubex-debug";
 
@@ -68,6 +65,9 @@ class Headers
 
   // ResponseForwardUri forward the browser to a new URI
   const ResponseForwardUri = "x-kubex-forward-uri";
+
+  // ResponseForwardGaid sets the gaid for the forward URI
+  const ResponseForwardGaid = "x-kubex-forward-gaid"; // GAID of the forward URI
 
   public static function verify(array $headers, $signatureKey, $maxTimeDiff = 60): bool
   {
