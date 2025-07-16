@@ -7,14 +7,16 @@ class EntryPoint
   public Text $text;
   public Text $title;
   public string $destinationPath;
+  public string $countPath;
   public string $launchMode = LaunchMode::Page;
   /** @var array<ScopedKey> */
   public array $requiredPermissions = [];
 
-  public static function create($path, $text, string $icon = '', string $title = "")
+  public static function create($path, $text, string $icon = '', string $title = "", string $countPath = '')
   {
     $t = new static();
     $t->destinationPath = $path;
+    $t->countPath = $countPath;
     $t->icon = $icon;
     $t->text = $text instanceof Text ? $text : Text::create($text);
     $t->title = $title === null ? '' : $t->text;
