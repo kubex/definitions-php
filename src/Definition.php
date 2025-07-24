@@ -56,6 +56,11 @@ class Definition implements \JsonSerializable
   public array $prefixRedirect; // Matching prefixes to redirect  e.g. [CST:CST => 'view/$1'] $1 includes the prefix
   /** @var array<string, string> */
   public array $quickCodes; // Matching Codes to redirect  e.g. [CST => 'view/$1'] $1 is replaced by everything after the code
+  /** @var SearchPattern[] */
+  public array $searchPatterns; // Quick actions made available in the outer shell
+
+  /** @var EntryPoint[] */
+  public array $quickActions; // Quick actions made available in the outer shell
 
   /** @var Navigation[] */
   public array $navigation = [];
