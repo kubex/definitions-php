@@ -10,6 +10,9 @@ class IntegrationPoint
   public string $pathID; //Remote app path ID
   public EntryPoint $entryPoint; // How the integration is presented
   public bool $multiPanel; // Whether the integration can be shows multiple panels
+  /** @var string|Category */
+  public string $category; // Category, if different from the main app
+  public int $priority = 0; // Priority of the integration point, higher is more important
 
   public int $preferredWidth; // Preferred width of the integration
 
