@@ -5,7 +5,7 @@ class ScopedKey extends GlobalAppID
 {
   public string $key;
 
-  public static function create($vendor, $app, $key = null)
+  public static function create($vendor, $app, $key = '')
   {
     $pk = parent::create($vendor, $app);
     $pk->key = $key;
