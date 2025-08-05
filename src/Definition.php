@@ -52,6 +52,8 @@ class Definition implements \JsonSerializable
 
   public array $permittedProxyPaths = []; // Paths that can be proxied by the platform, without auth / modification
 
+  public string $searchPanelPath; // Path to post search queries to
+
   /** @var array<string, string> */
   public array $prefixRedirect; // Matching prefixes to redirect  e.g. [CST:CST => 'view/$1'] $1 includes the prefix
   /** @var array<string, string> */
