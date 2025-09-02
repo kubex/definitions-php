@@ -26,4 +26,9 @@ class IntegrationPoint
 
   /** @var array<ScopedKey> */
   public array $requiredPermissions = [];// Permissions that must be set for the user to see this item
+
+  /** @var array<string> */
+  public array $requireTags = [];         // Tags that must be set on the page to see this item
+  /** @var array<string> */
+  public array $excludeTags = [];         // Tags that must NOT be set on the page to see this item
 }
