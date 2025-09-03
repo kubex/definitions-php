@@ -75,7 +75,7 @@ class Headers
   // ResponseCount item count
   const ResponseCount = "x-kubex-count";
 
-  // ResponseCount item colour
+  // ResponseColour item colour
   const ResponseColour = "x-kubex-colour";
 
   public static function verify(array $headers, $signatureKey, $maxTimeDiff = 60): bool
