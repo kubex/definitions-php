@@ -72,6 +72,12 @@ class Headers
   // ResponseForwardGaid sets the gaid for the forward URI
   const ResponseForwardGaid = "x-kubex-forward-gaid"; // GAID of the forward URI
 
+  // ResponseCount item count
+  const ResponseCount = "x-kubex-count";
+
+  // ResponseCount item colour
+  const ResponseColour = "x-kubex-colour";
+
   public static function verify(array $headers, $signatureKey, $maxTimeDiff = 60): bool
   {
     [$signature, $timestamp] = explode('/', static::value($headers, static::RequestSignature, '/'), 2);
