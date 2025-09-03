@@ -30,7 +30,7 @@ class Headers
   // RequestWorkspaceHost The full workspace host the user is currently in
   const RequestWorkspaceHost = "x-kx-workspace-host"; // Host of the workspace, used for routing
 
-  // RequestAuthentication JSON context data
+  // RequestContextData JSON context data
   const RequestContextData = "x-kx-context-data";
 
   // ResponseDebug Debug object for the browser
