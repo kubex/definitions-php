@@ -15,6 +15,7 @@ class Definition implements \JsonSerializable
   /** @var string|Category */
   public string $category;
   public string $icon = 'pending';//material design icon
+  public bool $skipCSRFValidation = false;
 
   /** @var array<GlobalAppID> */
   public array $dependencies = [];
