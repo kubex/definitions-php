@@ -78,6 +78,9 @@ class Headers
   // ResponseColor item color
   const ResponseColor = "x-kubex-color";
 
+  // ResponseClearValue clear the value of an input field
+  const ResponseClearValue = "x-kubex-clear-value";
+
   public static function verify(array $headers, $signatureKey, $maxTimeDiff = 60): bool
   {
     [$signature, $timestamp] = explode('/', static::value($headers, static::RequestSignature, '/'), 2);
