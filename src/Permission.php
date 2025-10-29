@@ -11,6 +11,11 @@ class Permission
    */
   public array $meta = [];
 
+    /**
+     * @var array<\Kubex\Definitions\PermissionConstraintDefinition>
+     */
+    public array $constraints = [];
+
   public static function create(string $key, $name, $description)
   {
     $t = new static();
