@@ -11,11 +11,11 @@ class PermissionConstraint
   #[\ReturnTypeWillChange]
   public function jsonSerialize()
   {
-      return [
-          'f' => $this->field,
-          't' => $this->type,
-          'o' => $this->operator,
-          'v' => $this->value,
-      ];
+    return [
+      'f' => $this->field,
+      't' => $this->type,
+      'o' => $this->operator,
+      'v' => $this->value,
+    ];
   }
 }
