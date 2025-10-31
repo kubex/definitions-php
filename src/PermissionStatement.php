@@ -6,11 +6,8 @@ class PermissionStatement implements \JsonSerializable
   public string $effect;
   public ScopedKey $permission;
   public string $resource;
-
-  /**
-   * @var array<string,string>
-   */
-  public array $meta = [];
+  /** @var array<string> */
+  public array $options = [];
 
   #[\ReturnTypeWillChange]
   public function jsonSerialize()
@@ -19,8 +16,7 @@ class PermissionStatement implements \JsonSerializable
       'e' => $this->effect ?? PermissionEffect::Allow,
       'p' => $this->permission ?? null,
       'r' => $this->resource ?? '',
-      'm' => $this->meta ?? null,
+      'o' => $this->options ?? null,
     ];
   }
-
 }
