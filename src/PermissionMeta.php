@@ -6,7 +6,12 @@ class PermissionMeta
   public string $key;
   public Text $name;
   public Text $description;
-  public ?PermissionOption $option;
+  /** @var array<string, string> */
+  public array $availableValues = [];
+  /** @var string|PropertyType */
+  public string $type;
+  /** @var string|PropertyDisplayType */
+  public string $displayType;
 
   public static function create(string $key, $name, $description)
   {
