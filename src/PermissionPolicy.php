@@ -38,6 +38,12 @@ class PermissionPolicy
     return true;
   }
 
+  public function permissionMetaKey(ScopedKey $permission, string $key): array
+  {
+    $meta = $this->permissionMeta($permission);
+    return $meta[$key] ?? [];
+  }
+
   public function permissionMeta(ScopedKey $permission): array
   {
     $meta = [];

@@ -130,6 +130,7 @@ class Headers
       $statement->effect = in_array(($raw['e'] ?? ''), ['A', 'Allow'])
         ? PermissionEffect::Allow : PermissionEffect::Deny;
       $statement->resource = $raw['r'] ?? '';
+      $statement->meta = $raw['m'] ?? [];
       $statement->permission = ScopedKey::create(
         $raw['p']['vendorID'] ?? '',
         $raw['p']['appID'] ?? '',
