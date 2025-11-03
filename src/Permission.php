@@ -1,7 +1,7 @@
 <?php
 namespace Kubex\Definitions;
 
-class Permission
+class Permission implements \JsonSerializable
 {
   public string $key;
   public Text $name;
@@ -19,4 +19,15 @@ class Permission
     $t->description = $description instanceof Text ? $description : Text::create($description);
     return $t;
   }
+
+  public function jsonSerialize()
+  {
+    return array_filter([
+      'key'         => $this->key,
+      'name'        => $this->name,
+      'description' => $this->description,
+      'meta'        => $this->meta,
+    ]);
+  }
+
 }
