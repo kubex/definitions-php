@@ -4,8 +4,8 @@ namespace Kubex\Definitions;
 class Permission implements \JsonSerializable
 {
   public string $key;
-  public ?Text $name;
-  public ?Text $description;
+  public ?Text $name = null;
+  public ?Text $description = null;
   /**
    * @var array<\Kubex\Definitions\PermissionMeta>
    */
