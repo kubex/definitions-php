@@ -10,7 +10,7 @@ class PermissionStatement implements \JsonSerializable
   public array $meta = [];
 
   #[\ReturnTypeWillChange]
-  public function jsonSerialize()
+  public function jsonSerialize(): mixed
   {
     return [
       'e' => $this->effect ?? PermissionEffect::Allow,

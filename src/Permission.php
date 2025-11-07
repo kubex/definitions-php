@@ -20,7 +20,7 @@ class Permission implements \JsonSerializable
     return $t;
   }
 
-  public function jsonSerialize()
+  public function jsonSerialize(): mixed
   {
     return array_filter([
       'key'         => $this->key,
