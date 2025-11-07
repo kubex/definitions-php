@@ -71,7 +71,7 @@ class Definition implements \JsonSerializable
   public string $hash = ''; // Hash of the definition for change detection, latest hash can be returned in HealthResponse
 
   #[\ReturnTypeWillChange]
-  public function jsonSerialize()
+  public function jsonSerialize(): mixed
   {
     $data = get_object_vars($this);
     if(empty($data['hash']))
