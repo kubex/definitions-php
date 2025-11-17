@@ -25,6 +25,9 @@ class Path
   /** @var array<EntryPoint> */
   public array $actions = [];
 
+  /** @var array<BuiltInResource> */
+  public array $builtInResources = [];
+
   public static function create($path, $id = '', $method = ''): self
   {
     $i = new static();
