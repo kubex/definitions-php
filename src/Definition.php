@@ -68,6 +68,8 @@ class Definition implements \JsonSerializable
   /** @var Navigation[] */
   public array $navigation = [];
 
+  public string $navigationUri = '';
+
   public string $hash = ''; // Hash of the definition for change detection, latest hash can be returned in HealthResponse
 
   #[\ReturnTypeWillChange]
