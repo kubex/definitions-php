@@ -65,7 +65,10 @@ class Resource
 
       $resource->id = $lvl[0];
 
-      $resources[] = $resource;
+      if($resource->id != "")
+      {
+        $resources[] = $resource;
+      }
     }
 
     return $resources;
