@@ -19,4 +19,5 @@ class PropertyDisplayType
   public const Phone = "phone"; // phone
   public const Amount = "amount"; // amount + currency
   public const Address = "address"; // string
+  public const Password = "password"; // string
 }

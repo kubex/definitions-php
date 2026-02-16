@@ -3,6 +3,8 @@ namespace Kubex\Definitions;
 
 class Definition implements \JsonSerializable
 {
+  public const VendorAppID = "kx"; // setting your application ID to this value should be done for vendor shared
+
   public GlobalAppID $id;
   public string $endpoint;
   public string $defaultPath; // Default path to use when opening the app
@@ -54,6 +56,9 @@ class Definition implements \JsonSerializable
   public array $permittedProxyPaths = []; // Paths that can be proxied by the platform, without auth / modification
 
   public string $searchPanelPath; // Path to post search queries to
+
+  /** @var EntryPoint[] */
+  public array $searchResults = []; // To surface pages in the global search results, e.g. Linking to sub pages
 
   /** @var array<string, string> */
   public array $prefixRedirect; // Matching prefixes to redirect  e.g. [CST:CST => 'view/$1'] $1 includes the prefix

@@ -39,6 +39,9 @@ class Headers
   // RequestChannels CSV of permitted channels
   const RequestChannels = "x-kx-channels";
 
+  // RequestConfiguration JSON configuration data for the app k:v pairs
+  const RequestConfiguration = "x-kx-configuration";
+
   const RequestEditorID = "x-kx-editor-id";
   const RequestFetchStyle = "x-kx-fetch-style";
   const RequestContextData = "x-kx-context-data";

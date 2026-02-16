@@ -28,6 +28,9 @@ class Path
   /** @var array<BuiltInResource> */
   public array $builtInResources = [];
 
+  /** @var array<ScopedKey> */
+  public array $requestConfig = []; // Configuration values that should be sent to this path
+
   public static function create($path, $id = '', $method = ''): self
   {
     $i = new static();

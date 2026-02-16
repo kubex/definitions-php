@@ -50,4 +50,7 @@ class PropertyDefinition
 
   // MaxOptions is the maximum number of elements that can be selected in a multi select
   public int $maxOptions;
+
+  public bool $vendorShared = false; // Property is shared across all apps from the same vendor
+  public bool $workspaceShared = false; // Property is shared across all apps in the same workspace
 }
