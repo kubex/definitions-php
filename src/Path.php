@@ -3,6 +3,8 @@ namespace Kubex\Definitions;
 
 class Path
 {
+  use AccessRequest;
+
   public string $id; // Allow the path to be linked
   public string $path; // with replacements, matches start, locating the most specific
   public string $method; // HTTP Method, blank for any
@@ -15,21 +17,10 @@ class Path
   public bool $promptOnExit = false; // Prompt the user when they try to leave the page
   public bool $hoverCard = false; // If this path can be displayed as a hoverCard
 
-  /** @var array<ScopedKey> */
-  public array $requestPermissions = [];
-  /** @var array<ScopedKey> */
-  public array $requiredPermissions = [];
-
   /** @var array<EntryPoint> */
   public array $navigation = [];
   /** @var array<EntryPoint> */
   public array $actions = [];
-
-  /** @var array<BuiltInResource> */
-  public array $builtInResources = [];
-
-  /** @var array<ScopedKey> */
-  public array $requestConfig = []; // Configuration values that should be sent to this path
 
   public static function create($path, $id = '', $method = ''): self
   {

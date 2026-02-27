@@ -7,6 +7,8 @@ class Definition implements \JsonSerializable
 
   public GlobalAppID $id;
   public string $endpoint;
+  public string $mcpEndpoint;
+  public string $apiEndpoint;
   public string $defaultPath; // Default path to use when opening the app
 
   public Text $name;
@@ -19,11 +21,15 @@ class Definition implements \JsonSerializable
   public string $icon = 'pending';//material design icon
   public bool $skipCSRFValidation = false;
 
-  /** @var array<GlobalAppID> */
-  public array $dependencies = [];
-
   /** @var array<Permission> */
   public array $permissions = [];
+
+  /** @var array<MCPCapability> */
+  public array $mcpCapabilities = [];
+  /** @var array<Operation> */
+  public array $operations = [];
+  /** @var array<Dependency> */
+  public array $dependencies = [];
 
   /** @var array<PermissionPolicy> */
   public array $roles = [];
