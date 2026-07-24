@@ -12,6 +12,10 @@ class PermissionMeta implements \JsonSerializable
   public string $type = '';
   /** @var string|PropertyDisplayType */
   public string $displayType = '';
+  /** @var int */
+  public int $min = 0;
+  /** @var int */
+  public int $max = 0;
 
   public static function create(string $key, $name, $description)
   {
@@ -31,6 +35,8 @@ class PermissionMeta implements \JsonSerializable
       'availableValues' => $this->availableValues,
       'type'            => $this->type,
       'displayType'     => $this->displayType,
+      'min'             => $this->min,
+      'max'             => $this->max,
     ]);
   }
 
