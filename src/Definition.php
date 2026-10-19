@@ -49,6 +49,9 @@ class Definition implements \JsonSerializable
   /** @var SettingsPage[] */
   public array $configuration = [];
 
+  /** @var EntryPoint[] configuration nav items are locked to the bottom of the app nav */
+  public array $configurationNav = [];
+
   public string $configurationPath;
 
   public string $homepage;
