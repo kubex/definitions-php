@@ -9,6 +9,8 @@ class IntegrationPoint
   public string $locationID; // Location ID if multiple locations available
   public string $pathID; //Remote app path ID
   public EntryPoint $entryPoint; // How the integration is presented
+  /** @var EntryPoint[] Long press/right click actions for action integrations */
+  public array $secondaryActions = [];
   public bool $multiPanel; // Whether the integration can be shows multiple panels
   /** @var string|Category */
   public string $category; // Category, if different from the main app

@@ -15,7 +15,11 @@
   },
   "require-dev": {
   },
+  "scripts": {
+    "test": "php tests/parity.php"
+  },
   "autoload": {
+    "files": ["src/Paths.php"],
     "psr-4": {
       "Kubex\\Definitions\\": "src/"
     }

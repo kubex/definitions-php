@@ -16,6 +16,7 @@ class Path
   public bool $hideBreadcrumb = false; // Hide the breadcrumb when this path is active
   public bool $promptOnExit = false; // Prompt the user when they try to leave the page
   public bool $hoverCard = false; // If this path can be displayed as a hoverCard
+  public bool $kiosk = false; // Default to kiosk mode when this path is active
 
   /** @var array<EntryPoint> */
   public array $navigation = [];

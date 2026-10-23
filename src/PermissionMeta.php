@@ -12,10 +12,8 @@ class PermissionMeta implements \JsonSerializable
   public string $type = '';
   /** @var string|PropertyDisplayType */
   public string $displayType = '';
-  /** @var float */
-  public float $min = 0;
-  /** @var float */
-  public float $max = 0;
+  public ?float $min = null;
+  public ?float $max = null;
 
   public static function create(string $key, $name, $description)
   {
@@ -28,16 +26,23 @@ class PermissionMeta implements \JsonSerializable
 
   public function jsonSerialize(): mixed
   {
-    return array_filter([
+    $data = array_filter([
       'key'             => $this->key,
       'name'            => $this->name,
       'description'     => $this->description,
       'availableValues' => $this->availableValues,
       'type'            => $this->type,
       'displayType'     => $this->displayType,
-      'min'             => $this->min,
-      'max'             => $this->max,
     ]);
+    if($this->min !== null)
+    {
+      $data['min'] = $this->min;
+    }
+    if($this->max !== null)
+    {
+      $data['max'] = $this->max;
+    }
+    return $data;
   }
 
 }

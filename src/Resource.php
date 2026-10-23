@@ -25,6 +25,13 @@ class Resource
     $this->display = $display;
   }
 
+  public function toHeader(): string
+  {
+    return $this->id
+      . ($this->level ? '.' . $this->level : '')
+      . ($this->display !== '' ? ':' . $this->display : '');
+  }
+
   /**
    * Parses a comma-separated string of resource data into an array of Resource objects.
    * * Expected format for each segment: ID.Level:Display

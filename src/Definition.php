@@ -31,6 +31,11 @@ class Definition implements \JsonSerializable
   /** @var array<Dependency> */
   public array $dependencies = [];
 
+  /** @var ProviderRegistration[] */
+  public array $providers = [];
+  /** @var ProviderDependency[] */
+  public array $providerDependencies = [];
+
   /** @var array<PermissionPolicy> */
   public array $roles = [];
 
@@ -64,7 +69,9 @@ class Definition implements \JsonSerializable
 
   public array $permittedProxyPaths = []; // Paths that can be proxied by the platform, without auth / modification
 
+  /** @deprecated Use $searchPanel instead. Serialized as an EntryPoint when set. */
   public string $searchPanelPath; // Path to post search queries to
+  public EntryPoint $searchPanel;
 
   /** @var EntryPoint[] */
   public array $searchResults = []; // To surface pages in the global search results, e.g. Linking to sub pages
@@ -84,12 +91,20 @@ class Definition implements \JsonSerializable
 
   public string $navigationUri = '';
 
+  public bool $systemApp = false; // Only system users can see/access this app
+  /** @var string[] Specific user IDs with access; empty means unrestricted */
+  public array $allowedUsers = [];
+  public bool $provideBlueprints = false;
+  public bool $provideHelp = false;
+  /** @var int|Necessity */
+  public int $javascriptExecution = Necessity::None;
+
   public string $hash = ''; // Hash of the definition for change detection, latest hash can be returned in HealthResponse
 
   #[\ReturnTypeWillChange]
   public function jsonSerialize(): mixed
   {
-    $data = get_object_vars($this);
+    $data = $this->serializationData();
     if(empty($data['hash']))
     {
       $data['hash'] = $this->getHash(false);
@@ -101,8 +116,21 @@ class Definition implements \JsonSerializable
   {
     $original = $this->hash;
     $this->hash = '';
-    $hash = md5(json_encode(get_object_vars($this)));
+    $hash = md5(json_encode($this->serializationData()));
     $this->hash = $original == '' && $updateIfEmpty ? $hash : $original;
     return $this->hash ?: $hash;
+  }
+
+  private function serializationData(): array
+  {
+    $data = get_object_vars($this);
+    if(!isset($this->searchPanel) && isset($this->searchPanelPath))
+    {
+      $panel = new EntryPoint();
+      $panel->destinationPath = $this->searchPanelPath;
+      $data['searchPanel'] = $panel;
+    }
+    // Keep the legacy field for consumers that still read it.
+    return $data;
   }
 }

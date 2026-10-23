@@ -39,6 +39,11 @@ class Headers
   // RequestChannels CSV of permitted channels
   const RequestChannels = "x-kx-channels";
 
+  const RequestDistributors = "x-kx-distributors";
+  const RequestPreferredLabels = "x-kx-preferred-labels";
+  const RequestConnectionID = "x-kx-connection-id";
+  const RequestConnectionToken = "x-kx-connection-token";
+
   // RequestConfiguration JSON configuration data for the app k:v pairs
   const RequestConfiguration = "x-kx-configuration";
 
@@ -86,6 +91,14 @@ class Headers
   // ResponseRefresh refresh (self, referer or space-ID[#fragment])
   const ResponseRefresh = "x-kubex-refresh";
 
+  // Reload table rows, preserving search, filters and pagination (self or CSS selectors).
+  const ResponseRefreshDataTable = "x-kubex-refresh-data-table";
+
+  public static function createSignatureKey(string $workspaceID, string $appSecret): string
+  {
+    return hash('sha256', $workspaceID . "\0" . $appSecret);
+  }
+
   // ResponseForwardUri forward the browser to a new URI
   const ResponseForwardUri = "x-kubex-forward-uri";
 
@@ -103,14 +116,23 @@ class Headers
 
   public static function verify(array $headers, $signatureKey, $maxTimeDiff = 60): bool
   {
-    [$signature, $timestamp] = explode('/', static::value($headers, static::RequestSignature, '/'), 2);
+    $parts = explode('/', static::value($headers, static::RequestSignature, '/'), 2);
+    if(count($parts) !== 2)
+    {
+      return false;
+    }
+    [$signature, $timestamp] = $parts;
+    if(!preg_match('/^[0-9]+$/D', $timestamp) || !preg_match('/^[a-f0-9]{64}$/D', $signature))
+    {
+      return false;
+    }
     $time = time();
     if($timestamp > ($time + $maxTimeDiff) || $timestamp < ($time - $maxTimeDiff))
     {
       return false;
     }
 
-    return $signature == hash(
+    return hash_equals(hash(
         'sha256',
         static::value($headers, static::RequestWorkspaceID)
         . static::value($headers, static::RequestUserID)
@@ -119,12 +141,13 @@ class Headers
         . static::value($headers, static::RequestUserIP)
         . static::value($headers, static::RequestUserAgent)
         . $timestamp
-      );
+      ), $signature);
   }
 
   public static function value(array $headers, $key, $default = '')
   {
-    $value = $headers[$key] ?? $default;
+    $headers = array_change_key_case($headers, CASE_LOWER);
+    $value = $headers[strtolower($key)] ?? $default;
     return is_array($value) ? implode('', $value) : $value;
   }
 
@@ -154,7 +177,7 @@ class Headers
       $statement->permission = ScopedKey::create(
         $raw['p']['vendorID'] ?? '',
         $raw['p']['appID'] ?? '',
-        $raw['p']['Key'] ?? '',
+        $raw['p']['Key'] ?? $raw['p']['key'] ?? '',
       );
       $policy->statements[] = $statement;
     }
